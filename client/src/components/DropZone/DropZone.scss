@@ -1,0 +1,37 @@
+@import './../../color';
+
+.dropzone-label {
+  margin-top: 1.5rem;
+  display: block;
+  font-size: 1.1rem;
+  color: $color-primary-dark;
+}
+
+.logo-container {
+  svg {
+    font-size: 100px;
+    fill: $color-primary-light;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.imageContainer {
+  position: relative;
+  & > svg {
+    font-size: 1.3rem;
+    font-weight: 400;
+    fill: $color-primary-light;
+    color: #fff;
+    position: absolute;
+    top: -1%;
+    right: 0;
+    transition: all 0.3s linear;
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.05);
+    }
+  }
+}

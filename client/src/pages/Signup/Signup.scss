@@ -1,0 +1,45 @@
+@import './../../color';
+
+.socials-container {
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2rem;
+  margin-top: 1.5rem;
+  align-items: center;
+
+  .google-signup:link,
+  .google-signup:visited,
+  .google-signup:active,
+  .google-signup:hover,
+  .fb-signup:link,
+  .fb-signup:visited,
+  .fb-signup:active,
+  .fb-signup:hover {
+    padding: 1rem;
+    font-size: 1.2rem;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-transform: uppercase;
+    svg {
+      font-size: 1.2rem;
+      margin-right: 1rem;
+      fill: #fff;
+    }
+  }
+  .google-signup:link,
+  .google-signup:visited,
+  .google-signup:active,
+  .google-signup:hover {
+    background-color: #da3d29;
+  }
+  .fb-signup:link,
+  .fb-signup:visited,
+  .fb-signup:active,
+  .fb-signup:hover {
+    background-color: #4267b2;
+  }
+}

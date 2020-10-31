@@ -1,0 +1,45 @@
+@import './../../color';
+
+.cart {
+  min-height: 82vh;
+  padding: 1rem;
+
+  &-details {
+    margin: 0 auto;
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(max-content, 8rem));
+    justify-content: flex-end;
+    color: $color-primary-dark;
+    font-size: 1.2rem;
+    &:first-of-type {
+      margin-top: 2rem;
+    }
+    &__label {
+      margin-right: 2rem;
+    }
+    &__value {
+    }
+  }
+  &-checkout-container {
+    width: 90%;
+    margin: 0 auto;
+    text-align: right;
+  }
+  .cart-checkout {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 0.8rem 6rem;
+    margin-top: 1rem;
+    border: none;
+    background-color: $color-primary-dark;
+    text-transform: uppercase;
+    color: #fff;
+    &:hover {
+      cursor: pointer;
+      background-color: darken($color: $color-primary-dark, $amount: 5%);
+    }
+  }
+}

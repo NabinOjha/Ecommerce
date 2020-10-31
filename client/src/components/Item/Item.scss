@@ -1,0 +1,74 @@
+@import './../../color';
+.item {
+  margin-top: 1rem;
+  max-width: 25vw;
+  border: 0.5px solid rgb(235, 231, 231);
+  border-radius: 10px;
+  box-shadow: 0 0 4px rgb(214, 212, 212);
+  overflow: hidden;
+  list-style: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 1024px) {
+    max-width: 20rem;
+  }
+
+  &__image-container {
+    height: 15.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__image {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+  }
+
+  .item__content {
+    padding: 1rem;
+    background: #eee;
+    .item__name {
+      font-size: 1rem;
+      font-weight: 400;
+      padding: 0.4rem;
+      padding-left: 0;
+    }
+
+    .item__price {
+      font-size: 1rem;
+      color: $color-primary-dark;
+    }
+    .item__logos {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1rem;
+
+      .item__rating {
+        svg {
+          height: 1rem;
+          width: 1rem;
+          fill: #ffc48c;
+        }
+      }
+      .item__cart {
+        &:hover {
+          cursor: pointer;
+        }
+        svg {
+          height: 1.3rem;
+          width: 1.3rem;
+          fill: $color-primary-dark;
+          transition: all 0.3s linear;
+          &:hover {
+            transform: scale(1.3);
+          }
+        }
+      }
+    }
+  }
+}

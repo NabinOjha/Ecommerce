@@ -1,0 +1,66 @@
+@import './../../color';
+.shop {
+  display: grid;
+  grid-template-columns: minmax(max-content, 16rem) 1fr;
+  grid-template-rows: repeat(2, min(25rem, 30rem)), 5rem;
+  min-height: 88vh;
+  justify-content: center;
+  @media screen and(max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+
+  &-sidebar {
+    grid-column: 1/2;
+    background: $color-background;
+    padding: 1rem;
+  }
+}
+
+.shop-sidebar {
+  .filters {
+    font-size: 1.3rem;
+  }
+}
+.filter-price {
+  margin-top: 1rem;
+  &-label {
+    font-size: 1.1rem;
+    display: block;
+    margin-right: -1rem;
+  }
+}
+
+.range-slider {
+  margin-top: 0.5rem;
+  margin-left: auto;
+  width: 98%;
+  .rc-slider-track {
+    height: 5px;
+  }
+  .rc-slider-handle {
+    background: rgb(59, 156, 236);
+    border: none;
+    border-radius: 50%;
+  }
+}
+
+.filter-category {
+  padding-top: 1.5rem;
+
+  &-label {
+    font-size: 1.1rem;
+  }
+  &-list {
+    list-style: none;
+    &__item {
+      font-size: 0.8rem;
+      background: $color-primary-dark;
+      color: #fff;
+      margin-top: 1rem;
+      padding: 0.5rem;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

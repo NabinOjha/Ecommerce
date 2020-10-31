@@ -1,0 +1,17 @@
+.shop-main {
+  padding: 0 1rem 1rem 1rem;
+  grid-column: 2/-1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(21rem, 1fr));
+  grid-template-rows: repeat(2, 25rem) 5rem;
+  justify-items: center;
+  @media screen and (max-width: 600px) {
+    grid-column: 1/2;
+  }
+}
+
+.list__pagination {
+  grid-column: 1/-1;
+  padding: 2rem 0;
+  justify-self: end;
+}

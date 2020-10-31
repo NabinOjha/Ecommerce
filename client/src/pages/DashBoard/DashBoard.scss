@@ -1,0 +1,75 @@
+@import './../../color';
+
+.dashboard {
+  display: table;
+  min-height: 100vh;
+  width: 100%;
+
+  .user {
+    display: table-cell;
+    width: 25%;
+    padding: 2rem 1rem;
+    vertical-align: top;
+
+    &__details {
+      width: 100%;
+      text-align: center;
+      border-bottom: 0.5px solid rgba(204, 204, 204, 0.541);
+      padding-bottom: 1rem;
+    }
+    &__image {
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    &__name {
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      font-weight: 500;
+      background-image: linear-gradient(
+        to right bottom,
+        $color-primary-dark,
+        $color-primary-light
+      );
+      background-clip: text;
+      color: transparent;
+    }
+
+    &__actions-list {
+      list-style: none;
+    }
+    &__actions-item {
+      text-align: center;
+      background-image: linear-gradient(
+        100deg,
+        $color-primary-dark,
+        $color-primary-light
+      );
+      padding: 0.8rem;
+      margin-top: 1.3rem;
+      font-size: 1rem;
+      color: #fff;
+      font-weight: 300;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover {
+        background-image: linear-gradient(
+          100deg,
+          $color-primary-light,
+          $color-primary-dark
+        );
+      }
+    }
+  }
+
+  .content {
+    display: table-cell;
+    width: 75%;
+    vertical-align: top;
+    padding: 3rem;
+    background-color: $color-background;
+  }
+}

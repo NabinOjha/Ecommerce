@@ -1,0 +1,49 @@
+@import './../../color';
+
+.paginate {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem 0;
+  color: #fff;
+
+  &__btn {
+    padding: 0.6rem 2rem;
+    background-color: $color-primary-light;
+    font-size: 0.9rem;
+    color: inherit;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    transition: all 0.3s ease-in;
+
+    &:disabled {
+      background: $color-primary-lighter;
+      cursor: default;
+    }
+  }
+
+  &__pages {
+    border-collapse: collapse;
+    background-color: #fff;
+  }
+  &__row {
+    .active {
+      background-color: #ccc;
+      color: $color-primary-dark;
+    }
+  }
+
+  &__data {
+    height: 100%;
+    padding: 0.5rem 1.3rem;
+    font-size: 0.8rem;
+    color: #222;
+    border-bottom: none;
+    border-top: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+  }
+}

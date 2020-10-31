@@ -1,0 +1,52 @@
+@import './../../color';
+
+.editor-control {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding: 0.8rem 0;
+
+  label {
+    display: block;
+    font-size: 1.1rem;
+    color: $color-primary-dark;
+    margin-bottom: 0.3rem;
+    transition: all 0.3s;
+  }
+
+  .error-label {
+    color: red;
+  }
+
+  #description {
+    .ql-container {
+      background: #ddd;
+      height: 15rem;
+
+      .ql-editor {
+        &::before {
+          font-style: normal;
+        }
+      }
+    }
+  }
+}
+.quill-error {
+  color: red;
+  position: absolute;
+  display: block;
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+  margin-left: 0.2rem;
+  animation: slideInQuill 0.3s ease-in;
+}
+
+@keyframes slideInQuill {
+  0% {
+    transform: translateY(-1rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

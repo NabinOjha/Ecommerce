@@ -1,0 +1,16 @@
+@import './../../color';
+.featured {
+  padding: 1rem;
+  text-align: center;
+
+  &__title {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: $color-primary-dark;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  p {
+    font-size: 1.1rem;
+  }
+}

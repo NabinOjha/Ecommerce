@@ -1,0 +1,69 @@
+@import './../../color';
+
+.table {
+  width: 90%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  margin-top: 2rem;
+
+  &-head {
+    &__col {
+      font-size: 1.1rem;
+      font-weight: 400;
+      border: 0.5px solid rgba(153, 153, 153, 0.4);
+      padding: 0.5rem;
+      margin: 0;
+      text-transform: uppercase;
+      color: #fff;
+      background-color: $color-primary-light;
+    }
+  }
+  &-body {
+    &__cell {
+      padding: 0.5rem;
+      height: 15px;
+
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: 300;
+      background-color: #fff;
+      color: $color-primary-dark;
+      border-bottom: 0.8px solid $color-background;
+      transition: all 0.3s linear;
+
+      .quantity-input {
+        background: darken($color: $color-background, $amount: 10%);
+        &:hover,
+        &:active {
+          background: #fff;
+        }
+      }
+      svg {
+        font-size: 1.5rem;
+        transition: all 0.2s linear;
+        cursor: pointer;
+
+        &:hover {
+          transform: scale(1.3);
+        }
+      }
+
+      &:last-child svg {
+        font-size: 1.5rem;
+        color: #fc2565;
+        cursor: pointer;
+      }
+
+      &--cart {
+        svg {
+          color: $color-primary-dark !important;
+        }
+      }
+    }
+
+    &__row:hover &__cell {
+      cursor: pointer;
+      background: $color-background;
+    }
+  }
+}

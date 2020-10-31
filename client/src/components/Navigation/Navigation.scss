@@ -1,0 +1,200 @@
+@import './../../color';
+
+@mixin burgerLine($marginPosition) {
+  content: '';
+  width: 2rem;
+  height: 0.2rem;
+  background: #fff;
+  position: absolute;
+  #{$marginPosition}: 0.68rem;
+  border-radius: 10px;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  padding: 0.5rem;
+  background-color: $color-primary-light;
+
+  .burger-menu {
+    display: none;
+    position: relative;
+  }
+
+  .burger-menu-container {
+    display: none;
+  }
+
+  &-item {
+    padding: 1rem 2rem;
+    a:link,
+    a:visited {
+      text-decoration: none;
+      font-size: 1.2rem;
+      color: #fff;
+      font-weight: 300;
+      text-transform: uppercase;
+      position: relative;
+      svg {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+      .cart-items__count {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        svg {
+          position: absolute;
+          bottom: 100%;
+          left: 100%;
+          width: 1.5rem;
+          height: 1.5rem;
+          fill: white;
+        }
+
+        span {
+          position: absolute;
+          color: $color-primary-dark;
+          bottom: 110%;
+          left: 135%;
+          font-size: 1rem;
+        }
+      }
+    }
+    a:hover {
+      cursor: pointer;
+    }
+
+    a.active {
+      color: rgb(219, 214, 214);
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .nav {
+    padding: 2rem 1rem;
+    position: relative;
+    justify-content: flex-start;
+
+    .burger-menu-container {
+      width: 2rem;
+      height: 2rem;
+      cursor: pointer;
+      position: absolute;
+      display: block;
+      z-index: 200;
+      top: -1rem;
+    }
+
+    &-item {
+      display: none;
+    }
+
+    .burger-menu {
+      width: 2rem;
+      height: 0.25rem;
+      background: #fff;
+      position: relative;
+      display: block;
+      cursor: pointer;
+      border-radius: 10px;
+
+      &::before {
+        @include burgerLine(bottom);
+      }
+      &::after {
+        @include burgerLine(top);
+      }
+    }
+    .menu-open {
+      height: 1.6rem;
+      width: 2rem;
+      background: transparent;
+      transition: all 0.2s ease;
+      transform-origin: center;
+
+      &::before {
+        animation: crossIn 0.3s ease-in forwards;
+        border-radius: 10px;
+        height: 0.25rem;
+      }
+      &::after {
+        animation: crossOut 0.3s ease-in forwards;
+        border-radius: 10px;
+        height: 0.25rem;
+      }
+    }
+  }
+  .show {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    min-height: 80vh;
+    animation: slideIn 0.3s ease-in;
+
+    .burger-menu-container,
+    .burger-menu {
+      align-self: flex-start;
+    }
+
+    & > li {
+      display: block;
+      animation: slideIn 0.3s ease-in;
+      margin-top: 1.5rem;
+
+      &:first-of-type {
+        margin-top: 3rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 200px) {
+  .show {
+    align-items: flex-start;
+
+    & > li {
+      padding-left: 0;
+    }
+
+    & > li a {
+      padding: 1rem 0;
+    }
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes crossIn {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes crossOut {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-50deg);
+  }
+}

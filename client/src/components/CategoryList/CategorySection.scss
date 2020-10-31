@@ -1,0 +1,32 @@
+@import './../../color';
+.category {
+  margin-top: 3rem;
+  padding: 1rem;
+  text-align: center;
+  background: $color-background;
+
+  &-title {
+    text-align: center;
+    font-size: 1.6rem;
+    color: $color-primary-dark;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .category-btn {
+    padding: 1rem 2rem;
+    border: none;
+    margin-top: 1rem;
+    outline: none;
+    background: $color-primary-dark;
+    color: #fff;
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: all 0.2s ease-in;
+
+    &:hover {
+      cursor: pointer;
+      background: lighten($color: $color-primary-dark, $amount: 20%);
+    }
+  }
+}
