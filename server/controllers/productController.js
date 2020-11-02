@@ -107,10 +107,8 @@ exports.editProduct = catchAsync(async (req, res, next) => {
 
 exports.getProduct = catchAsync(async (req, res, next) => {
   const { id } = req.params;
-  console.log({ id });
-  console.log({ Product });
-  const product = await Product.find({ _id: id }).populate('comments');
-  console.log(product);
+
+  const product = await Product.findById(id);
 
   if (!product) return next(new AppError('Product not found!', 404));
   res.status(200).json({

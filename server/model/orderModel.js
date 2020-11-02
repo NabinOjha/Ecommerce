@@ -12,9 +12,15 @@ const orderSchema = new Schema({
   },
   products: [
     {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Product',
-      required: [true, 'Please provide a order!'],
+      prod: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Product',
+        required: [true, 'Please provide a order!'],
+      },
+      itemQuantity: {
+        type: Number,
+        required: [true, 'Please provide item quantity!!'],
+      },
     },
   ],
   shipping: new Schema({
@@ -33,9 +39,8 @@ const orderSchema = new Schema({
   }),
 });
 
-orderSchema.post('save', async function (next) {
+orderSchema.post('save', async function () {
   await Cart.deleteMany({ user: this.user });
-  next();
 });
 
 const Order = mongoose.model('Order', orderSchema);

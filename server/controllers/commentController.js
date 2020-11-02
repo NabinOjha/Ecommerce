@@ -2,6 +2,7 @@ const catchAsync = require('./../utils/catchAsync');
 const Comment = require('./../model/commentModel');
 const Product = require('./../model/productModel');
 const AppError = require('./../utils/AppError');
+const util = require('util');
 
 const createComment = catchAsync(async (req, res, next) => {
   const { prodId } = req.params;
@@ -11,21 +12,6 @@ const createComment = catchAsync(async (req, res, next) => {
     product: prodId,
     user: req.user._id,
   });
-
-  // console.log({ comment });
-
-  const updatedProduct = await Product.findByIdAndUpdate(
-    prodId,
-    {
-      $push: { comments: prodId },
-    },
-    { new: true }
-  );
-
-  // console.log({ updatedProduct });
-  const product = await Product.findOne({ _id: prodId }).populate('comments');
-
-  console.log({ product });
 
   res.status(200).json({
     data: { ...comment._doc, user: req.user },

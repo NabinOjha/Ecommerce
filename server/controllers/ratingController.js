@@ -14,8 +14,12 @@ exports.createRating = catchAsync(async (req, res, next) => {
 
   const rating = await Rating.create(ratingData);
 
+  const updatedProduct = await Product.findById(req.body.prodId).select(
+    '-comments -__v'
+  );
+
   res.status(200).json({
-    data: rating,
+    data: updatedProduct,
     message: 'Success',
   });
 });

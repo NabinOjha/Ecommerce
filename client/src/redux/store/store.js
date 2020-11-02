@@ -4,7 +4,6 @@ import userReducer from './../reducers/userReducer';
 import loadingReducer from './../reducers/loadingReducer';
 import productReducer from './../reducers/productReducer';
 import categoryReducer from './../reducers/categoryReducer';
-import ratingReducer from './../reducers/ratingReducer';
 import commentReducer from './../reducers/commentReducer';
 import cartReducer from './../reducers/cartReducer';
 
@@ -13,7 +12,6 @@ const rootReducer = combineReducers({
   products: productReducer,
   loading: loadingReducer,
   category: categoryReducer,
-  ratings: ratingReducer,
   comments: commentReducer,
   cart: cartReducer,
 });

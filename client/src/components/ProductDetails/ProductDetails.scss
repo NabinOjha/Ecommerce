@@ -2,7 +2,7 @@
 
 .product {
   padding: 2rem;
-  grid-template-columns: repeat(3, 1fr) 25%;
+  grid-template-columns: repeat(3, 1fr) 20%;
 
   display: grid;
   grid-template-areas:
@@ -175,6 +175,7 @@
       list-style: none;
     }
     &__item {
+      width: 85%;
       display: table;
       background-color: $color-primary-dark;
       color: #fff;

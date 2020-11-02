@@ -13,7 +13,7 @@ const DashBoard = ({ currentUser }) => {
   const [content, setContent] = useState('ProductTable');
   const [editProdId, setEditProdId] = useState(null);
 
-  const { location } = useHistory();
+  const { location, push } = useHistory();
   const prodId = location.state && location.state.prodId;
   const activeContent = location.state && location.state.activeContent;
 
@@ -93,6 +93,9 @@ const DashBoard = ({ currentUser }) => {
             onClick={() => setContent('Add-category')}
           >
             Create category
+          </li>
+          <li className='user__actions-item' onClick={() => push('/orders')}>
+            My orders
           </li>
           <li className='user__actions-item' onClick={handleLogout}>
             Logout

@@ -39,7 +39,7 @@ const ProductDetails = ({ setLoadingState, isLoading }) => {
   const productComments = useSelector(selectComments);
 
   useEffect(() => {
-    // dispatch(getComments(prodId));
+    dispatch(getComments(prodId));
     dispatch(getProduct(prodId));
   }, [dispatch, prodId]);
 
@@ -129,10 +129,14 @@ const ProductDetails = ({ setLoadingState, isLoading }) => {
     );
   };
 
+  if (!isLoading && currentProduct) {
+    console.log(currentProduct);
+  }
+
   return (
     !isLoading &&
     currentProduct && (
-      <div className='product '>
+      <div className='product'>
         <div className='product-images__main'>
           <img
             className={`product-images__banner ${animationClassState}`}
@@ -144,6 +148,7 @@ const ProductDetails = ({ setLoadingState, isLoading }) => {
           />
         </div>
         <ul className='product-images__list'>{renderProductImages()}</ul>
+
         <div className='product-details'>
           <h3 className='product-details__name'> HP Laptop</h3>
           <div className='product-details__item'>

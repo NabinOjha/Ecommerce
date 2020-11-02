@@ -99,6 +99,8 @@ const Checkout = () => {
     );
   };
 
+  console.log(cart);
+
   const cartItems = cart.map((item, index) => (
     <li className='cartItem' key={index}>
       <img

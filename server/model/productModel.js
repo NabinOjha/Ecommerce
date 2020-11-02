@@ -5,7 +5,6 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Please provide a name!'],
   },
-
   price: {
     type: Number,
     required: [true, 'Please provide price!'],
@@ -18,7 +17,6 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Please provide description!'],
   },
-
   avgRating: {
     type: Number,
     default: 40,
@@ -33,12 +31,6 @@ const productSchema = new mongoose.Schema({
   productImages: {
     type: [String],
   },
-  comments: [
-    {
-      type: mongoose.Schema.ObjectId,
-      ref: 'Comment',
-    },
-  ],
 });
 
 const Product = mongoose.model('Product', productSchema);

@@ -197,6 +197,7 @@ export const createRating = (data) => {
     const type = 'CREATE_RATING';
     dispatch({ type: requestActionType(type) });
     const response = await FETCH('/ratings', 'POST', data);
+    console.log(response.data.data);
     dispatch({ type: successActionType(type), payload: response.data.data });
   });
 };
@@ -210,7 +211,6 @@ export const createComment = (comment, prodId) => {
     const type = 'CREATE_COMMENT';
     dispatch({ type: requestActionType(type) });
     const response = await FETCH(`/comments/${prodId}`, 'POST', { comment });
-
     dispatch({ type: successActionType(type), payload: response.data.data });
   });
 };
@@ -271,8 +271,10 @@ export const createOrder = (data) => {
   return factoryFunction(async (dispatch) => {
     const type = 'CREATE_ORDER';
     dispatch({ type: requestActionType(type) });
-    await FETCH(`/orders`, 'POST', data);
-    return;
+    const response = await FETCH(`/orders`, 'POST', data);
+    dispatch({ type: 'CLEAR_USER_CART' });
+    console.log(response.data.data);
+    dispatch({ type: successActionType(type), payload: response.data.data });
   });
 };
 
@@ -281,7 +283,6 @@ export const getMyOrders = (userId) => {
     const type = 'FETCH_ORDER';
     dispatch({ type: requestActionType(type) });
     const response = await FETCH(`/orders/${userId}`);
-    console.log(response);
-    dispatch({ type: successActionType, data: response.data.data });
+    dispatch({ type: successActionType(type), payload: response.data.data });
   });
 };

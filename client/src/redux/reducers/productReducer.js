@@ -62,6 +62,8 @@ const productReducer = (state = INITIAL_STATE, action) => {
         ...state,
         filter: {},
       };
+    case 'CREATE_RATING_SUCCESS':
+      return { ...state, currentProduct: action.payload };
     default:
       return state;
   }

@@ -136,21 +136,35 @@ exports.createCheckoutSession = catchAsync(async (req, res, next) => {
 exports.createOrder = catchAsync(async (req, res, next) => {
   const { products } = await Cart.findById(req.body.cartId);
 
-  const userOrder = await Order.create({
-    products: products.map((item) => item.prod),
+  //check if the user has an order
+  //for each product in cart
+  //if prod in the cart has already been ordered by a user then increase itemQuantity
+
+  //create a new order
+
+  await Order.create({
+    products: products.map(({ prod, itemQuantity }) => ({
+      prod,
+      itemQuantity,
+    })),
     user: req.user._id,
     shipping: req.body.shippingData,
   });
 
+  const orders = await Order.find({ user: req.user._id }).populate(
+    'user products.prod'
+  );
+  console.log(orders);
+
   res.status(200).json({
     message: 'Success',
-    data: userOrder,
+    data: orders,
   });
 });
 
 exports.getMyOrders = catchAsync(async (req, res, next) => {
   const orders = await Order.find({ user: req.params.userId }).populate(
-    'user products'
+    'user products.prod'
   );
 
   if (!orders)
